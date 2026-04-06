@@ -1,0 +1,21 @@
+[package]
+name = "marketplace"
+version = "0.1.0"
+description = "Marketplace Program - buy/sell NFT items for MagicToken"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+[dependencies]
+anchor-lang = { version = "0.30.1" }
+anchor-spl = { version = "0.30.1", features = ["token_2022"] }
+resource-manager = { path = "../resource-manager", features = ["cpi"] }
+magic-token = { path = "../magic-token", features = ["cpi"] }
+item-nft = { path = "../item-nft", features = ["cpi"] }
